@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- basic meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Department Search</title>
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="css/spdoctorbootstrap.min.css">
+    <!-- custom css -->
+    <link rel="stylesheet" type="text/css" href="css/spdoctor.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                   <a class="nav-link" href="index.html">HOME</a>
+                </li>
+            </ul>
+        </div>
+        <div class="login_text"><a href="login.html">LOGIN HERE</a></div>
+    </nav>
+
+    <!-- Search Department Section -->
+    <div class="search_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 class="what_text">Department</h1>
+                    <p class="city_text">Like Cardiologist</p>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="jobTitle" placeholder="Search for Department">
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary" type="button" onclick="findDepartment()">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h1 class="what_text">Location</h1>
+                    <p class="city_text">City</p>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="jobLocation" placeholder="Like Dhaka">
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary" type="button" onclick="findDepartment()">
+                                <i class="fa fa-map-marker"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="find_bt" onclick="findDepartment()">Find Departments</button>
+            <!-- Department Results -->
+            <div id="jobResults" class="job-results"></div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function findDepartment() {
+            const jobTitle = document.getElementById('jobTitle').value.trim();
+            const jobLocation = document.getElementById('jobLocation').value.trim();
+            const jobResults = document.getElementById('jobResults');
+
+            jobResults.innerHTML = ''; // Clear previous results
+
+            if (!jobTitle) {
+            jobResults.innerHTML = '<p><b>Information Not Found</b></p>';
+            return;
+        }
+            // Mock department results
+            const jobs = [
+                {title: 'Cardiologist', location: 'Dhaka',
+                    description: [
+                        'Dr. Mohammad Rashedul Hasan',
+                        'Hospital: United Hospital Limited, Dhaka'
+                    ]
+                },
+                {title: 'Cardiologist', location: 'Dhaka',
+                    description: [
+                        'Dr. A. N. M. Zahirul Haque',
+                        'Hospital: Evercare Hospital, Dhaka'
+                    ]
+                },
+                {title: 'Cardiologist', location: 'Dhaka',
+                    description: [
+                        'Dr. M. A. Khaleque',
+                        'Hospital: Square Hospitals Ltd., Dhaka'
+                    ]
+                },
+                {title: 'Cardiologist', location: 'Chittagong',
+                    description: [
+                            'Dr. Md. Asaduzzaman',
+                            'Hospital: Max Hospital, Chattogram'
+                        ]
+                },
+                {title: 'Cardiologist', location: 'Chittagong',
+                    description: [
+                            'Dr. Shafiqur Rahman',
+                            'Hospital: Chattogram Metropolitan Hospital'
+                        ]
+                },
+                {title: 'Cardiologist', location: 'Chittagong',
+                    description: [
+                            'Dr. Md. Jahangir Alam',
+                            'Hospital: Evercare Hospital, Chattogram'
+                        ]
+                },
+                {title: 'Cardiologist', location: 'Rajshahi',
+                    description: [
+                            'Dr. Syed Khandaker Shamsuddin',
+                            'Hospital: Rajshahi City Hospital.'
+                        ]
+                },
+                {title: 'Cardiologist', location: 'Rajshahi',
+                    description: [
+                            'Dr. Shahnaz Sultana',
+                            'Hospital: Medinova Medical Services Ltd. in Rajshahi.'
+                        ]
+                },
+                {title: 'Neurologist', location: 'Dhaka',
+                    description: [
+                            'Dr. Mahbubul Hasan',
+                            'Hospital: Square Hospitals Ltd.'
+                        ]
+                },
+                {title: 'Neurologist', location: 'Dhaka',
+                    description: [
+                            'Dr. Md. A. A. Haque',
+                            'Hospital: United Hospital'
+                        ]
+                },
+                {title: 'Neurologist', location: 'Dhaka',
+                    description: [
+                            'Dr. A. K. M. Fazlul Karim',
+                            'Hospital: Apollo Hospitals Dhaka'
+                        ]
+                },
+                {title: 'Neurologist', location: 'Chittagong',
+                    description: [
+                            'Dr. Md. Hossain',
+                            'Hospital: Chittagong Medical College Hospital'
+                        ]
+                },
+                {title: 'Neurologist', location: 'Chittagong',
+                    description: [
+                            'Dr. Abu Ahmed',
+                            'Hospital: Max Hospital'
+                        ]
+                },
+                {title: 'Neurologist', location: 'Chittagong',
+                    description: [
+                            'Dr. Mohsin Ahmed',
+                            'Hospital: Parkview Hospital'
+                        ]
+                },
+                {title: 'Neurologist', location: 'Rajshahi',
+                    description: [
+                            'Dr. M. I. Shahidul Islam',
+                            'Hospital: Rajshahi Medical College Hospital'
+                        ]
+                },
+                {title: 'Neurologist', location: 'Rajshahi',
+                    description: [
+                            'Dr. Md. Rashedul Alam',
+                            'Hospital: Green Life Hospital'
+                        ]
+                },
+                {title: 'Neurologist', location: 'Rajshahi',
+                    description: [
+                            'Dr. Gazi Mohammed Mofizur Rahman',
+                            'Hospital: New Rajshahi Clinic'
+                        ]
+                },
+                {title: 'Endocrinologist', location: 'Dhaka',
+                    description: [
+                        'Dr. Md. Fazlur Rahman',
+                        'Hospital: Square Hospital'
+                    ]
+                },
+                {title: 'Endocrinologist', location: 'Dhaka',
+                    description: [
+                        'Dr. Mohammad Feroz Alam',
+                        'Hospital: Apollo Hospitals Dhaka'
+                    ]
+                },
+                {title: 'Endocrinologist', location: 'Dhaka',
+                    description: [
+                        'Dr. Shamsul Arefin',
+                        'Hospital: United Hospital'
+                    ]
+                },
+                {title: 'Endocrinologist', location: 'Chittagong',
+                    description: [
+                        'Dr. Md. Rezaul Karim',
+                        'Hospital: Chittagong Medical College Hospital'
+                    ]
+                },
+                {title: 'Endocrinologist', location: 'Chittagong',
+                    description: [
+                        'Dr. Monirul Islam',
+                        'Hospital: North East Medical College Hospital'
+                    ]
+                },
+                {title: 'Endocrinologist', location: 'Rajshahi',
+                    description: [
+                        'Dr. Kazi Mahbubur Rahman',
+                        'Hospital: Rajshahi Medical College Hospital'
+                    ]
+                },
+                {title: 'Endocrinologist', location: 'Rajshahi',
+                    description: [
+                        'Dr. Md. Nurul Islam',
+                        'Hospital: Dr. Nuri’s Clinic'
+                    ]
+                }
+            ];
+
+            // Filter results based on search criteria
+            const filteredJobs = jobs.filter(job =>
+                job.title.toLowerCase().includes(jobTitle.toLowerCase()) &&
+                job.location.toLowerCase().includes(jobLocation.toLowerCase())
+            );
+
+            // Display filtered results
+            if (filteredJobs.length > 0) {
+                filteredJobs.forEach(job => {
+                    const jobItem = document.createElement('div');
+                    jobItem.className = 'job-item';
+                    jobItem.innerHTML = `<h2>${job.description}</h2>`;
+                    jobResults.appendChild(jobItem);
+                });
+            } else {
+                jobResults.innerHTML = '<p>No Information found or Spelling Mistake.</p>';
+            }
+        }
+    </script>
+</body>
+</html>

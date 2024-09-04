@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Tracker</title>
+    <link rel="stylesheet" href="css/tracker.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Disease Tracker</h1>
+            <p>Identify potential diseases based on your symptoms with precision.</p>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <div class="container">
+            <section class="filter-section">
+                <h2>Filter by Symptoms</h2>
+                <form id="filterForm" class="filter-form">
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="symptom" value="Fever"> Fever
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="symptom" value="Cough"> Cough
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="symptom" value="Fatigue"> Fatigue
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="symptom" value="Runny Nose"> Runny Nose
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="symptom" value="Rash"> Rash
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="symptom" value="Chest Pain"> Chest Pain
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="symptom" value="Muscle Aches"> Muscle Aches
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="symptom" value="Diarrhea"> Diarrhea
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="symptom" value="Shortness of Breath"> Shortness of Breath
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="symptom" value="Headache"> Headache
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="symptom" value="Abdominal Pain"> Abdominal Pain
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="symptom" value="Blurred Vision"> Blurred Vision
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="symptom" value="Itching"> Itching
+                        </label>
+                    </label>
+
+                    </div>
+                    <button type="button" class="btn filter-btn" onclick="filterDiseases()">Apply Filter</button>
+                </form>
+            </section>
+
+            <section class="results-section">
+                <h2>Possible Diseases</h2>
+                <ul id="diseaseList" class="disease-list">
+                    <li data-symptoms="Fever,Cough,Fatigue,Muscle Aches,Headache" class="disease-item">Flu</li>
+                    <li data-symptoms="fever,fatigue" class="disease-item">Malaria</li>
+                    <li data-symptoms="Fever,Cough,Fatigue,Runny Nose,Headache"
+                    class="disease-item">Common Cold</li>
+                    <li data-symptoms="Fever,Cough,Fatigue,Shortness of Breath,Muscle Aches" class="disease-item">COVID-19</li>
+                    <li data-symptoms="Fever,Cough,Shortness of Breath,Chest Pain,Fatigue" class="disease-item">Pneumonia</li>
+                    <li data-symptoms="Runny Nose,Itching,Cough,Fatigue,Headache" class="disease-item">Allergic Rhinitis (Hay Fever)</li>
+                    <li data-symptoms="Cough,Shortness of Breath,Chest Pain,Fatigue,Itching" class="disease-item">Asthma</li>
+                    <li data-symptoms="Headache,Blurred Vision,Fatigue" class="disease-item">Migraine</li>
+                    <li data-symptoms="Rash,Itching,Blurred Vision,Fatigue " class="disease-item">Eczema</li>
+                    <li data-symptoms="Abdominal Pain,Diarrhea,Fatigue,Headache" class="disease-item">Irritable Bowel Syndrome (IBS)</li>
+                    <li data-symptoms="Blurred Vision,Fatigue,Itching,Muscle Aches" class="disease-item">Diabetes</li>
+                    <li data-symptoms="Chest Pain,Shortness of Breath,Fatigue,Muscle Aches" class="disease-item">Heart Attack</li>
+                    <li data-symptoms="Fever,Headache,Rash,Blurred Vision,Muscle Aches" class="disease-item">Meningitis</li>
+                    <li data-symptoms="Fever,Fatigue,Rash,Muscle Aches,Chest Pain,Headache,Abdominal Pain" class="disease-item">Lupus</li>
+                    <li data-symptoms="Cough,Shortness of Breath,Fatigue,Chest Pain,Muscle Aches,Headache,Blurred Vision" class="disease-item">Chronic Obstructive Pulmonary Disease (COPD)</li>
+                    <li data-symptoms="Rash,Itching,Abdominal Pain,Fever,Fatigue,Muscle Aches,Headache" class="disease-item">Shingles</li>
+                    <li data-symptoms="Fever,Fatigue,Muscle Aches,Headache,Rash,Blurred Vision,Abdominal Pain" class="disease-item">Lyme Disease</li>
+                    <li data-symptoms="Abdominal Pain,Fatigue,Headache,Blurred Vision,Itching,Chest Pain" class="disease-item">Peptic Ulcer Disease</li>
+                    <li data-symptoms="Fever,Fatigue,Sore Throat,Muscle Aches,Headache,Abdominal Pain,Rash" class="disease-item">Mononucleosis (Mono)</li>
+                    <li data-symptoms="Diarrhea,Abdominal Pain,Fatigue,Headache,Itching,Blurred Vision,Muscle Aches" class="disease-item">Celiac Disease</li>
+
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/tracker.js"></script>
+</body>
+</html>

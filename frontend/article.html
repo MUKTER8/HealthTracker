@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health News Portal</title>
+    <link rel="stylesheet" href="css/article.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Health News Portal</h1>
+            <div class="search-box">
+                <a href="index.html"><button class="home">Home</button></a>
+                <input type="text" id="searchInput" placeholder="Search for a disease..." onkeydown="handleKeyPress(event)">
+                <button class="find_bt" onclick="search()">Search</button>
+                <div id="SearchResults" class="search-results"></div>
+            </div>
+        </header>
+        
+        <section id="results-container" class="results-container">
+            <h4>Health News Portal provides accurate, timely health information to enhance public understanding, support informed decisions, and promote proactive health management, bridging the gap between medical knowledge and public awareness.</h4>
+            <div id="resultsBox" class="results-box">
+                <!-- Results will be displayed here -->
+            </div>
+        </section>
+    </div>
+
+    <script src="js/article.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Medical Services</title>
+    <link rel="stylesheet" href="css/ems.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_ACTUAL_API_KEY&libraries=places"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Find Emergency Medical Services</h1>
+        <div class="search-box">
+            <a href="index.html"><button>Home</button></a>
+            <input type="text" id="searchInput" placeholder="Enter city name or medical service">
+            <button onclick="searchLocations()">Search</button>
+        </div>
+        <div id="map"></div>
+    </div>
+
+    <script>
+        let map;
+        let infowindow;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: -34.397, lng: 150.644 },
+                zoom: 8
+            });
+            infowindow = new google.maps.InfoWindow();
+        }
+
+        function searchLocations() {
+            const input = document.getElementById('searchInput').value;
+            const request = {
+                query: input,
+                fields: ['name', 'geometry'],
+            };
+
+            const service = new google.maps.places.PlacesService(map);
+            service.findPlaceFromQuery(request, function(results, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    for (let i = 0; i < results.length; i++) {
+                        createMarker(results[i]);
+                    }
+                    map.setCenter(results[0].geometry.location);
+                }
+            });
+        }
+
+        function createMarker(place) {
+            const marker = new google.maps.Marker({
+                map: map,
+                position: place.geometry.location
+            });
+
+            google.maps.event.addListener(marker, 'click', function() {
+                infowindow.setContent(place.name);
+                infowindow.open(map, this);
+            });
+        }
+
+        window.onload = initMap;
+    </script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+/* Reset and Basic Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background: #002b36;
+    color: #ffffff;
+    padding: 18px 20px;
+    text-align: center;
+    border-bottom: 8px solid #009688;
+}
+
+.header h1 {
+    font-size: 2.3em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.header p {
+    font-size: 1.25em;
+    margin-top: 0;
+    font-weight: 300;
+}
+
+/* Main Content */
+.main-content {
+    padding: 40px 20px;
+}
+
+.filter-section, .results-section {
+    background: #ffffff;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.filter-section h2, .results-section h2 {
+    font-size: 2em;
+    color: #002b36;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #009688;
+    padding-bottom: 10px;
+}
+
+.filter-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    background: #f9fafb;
+    padding: 14px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.checkbox-item:hover {
+    background: #e0e4e8;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.checkbox-item input {
+    margin-right: 12px;
+}
+
+.btn {
+    padding: 12px 24px;
+    background: #009688;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background: #00796b;
+    transform: scale(1.02);
+}
+
+/* Results Section */
+.disease-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.disease-item {
+    padding: 15px;
+    margin-bottom: 15px;
+    background: #f9fafb;
+    border-radius: 8px;
+    font-size: 1.15em;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.disease-item:hover {
+    background: #e0e4e8;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+.footer {
+    background: #002b36;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    border-top: 8px solid #009688;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.9em;
+}

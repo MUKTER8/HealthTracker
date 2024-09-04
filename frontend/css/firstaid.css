@@ -1,0 +1,69 @@
+/* Basic Reset */
+body, h1, p, a, button {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar-nav .nav-link {
+    color: #333;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.login_text {
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+.search_section {
+    padding: 50px 0;
+    background-color: #f4f4f4;
+}
+
+.what_text {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.city_text {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.input-group .form-control {
+    border-radius: 0;
+    height: 50px;
+}
+
+.input-group .btn-secondary {
+    border-radius: 0;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.find_bt {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    margin-top: 20px;
+}
+
+.disease-results {
+    margin-top: 30px;
+}
+
+.disease-item {
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+

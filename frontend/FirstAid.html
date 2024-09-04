@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- basic meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>First Aid</title>
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="css/firstaidbootstrap.min.css">
+    <!-- custom css -->
+    <link rel="stylesheet" type="text/css" href="css/firstaid.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                   <a class="nav-link" href="index.html">HOME</a>
+                </li>
+            </ul>
+        </div>
+        <div class="login_text"><a href="login.html">LOGIN HERE</a></div>
+    </nav>
+
+    <!-- Search Diseases Section -->
+    <div class="search_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 class="what_text">Search Disease</h1>
+                    <p class="city_text">Like Heart Attack, Fever</p>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="DiseaseTitle" placeholder="Search Disease for First Aid">
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary" type="button" onclick="findDisease()">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="find_bt" onclick="findDisease()">Find First Aid</button>
+            <!-- Disease Results -->
+            <div id="DiseaseResults" class="disease-results"></div>
+        </div>
+    </div>
+
+
+<!-- JavaScript -->
+<script>
+    function findDisease() {
+        const diseaseTitle = document.getElementById('DiseaseTitle').value.trim().toLowerCase();
+        const diseaseResults = document.getElementById('DiseaseResults');
+
+        diseaseResults.innerHTML = ''; // Clear previous results
+
+        // Check for empty input
+        if (!diseaseTitle) {
+            diseaseResults.innerHTML = '<p><b>Information Not Found</b></p>';
+            return;
+        }
+
+        // Mock disease data
+        const diseases = [
+            {
+                title: 'Heart Attack',
+                description: [
+                    'Call emergency services.',
+                    'Keep the person calm.',
+                    'Administer aspirin if not allergic.'
+                ]
+            },
+            {
+                title: 'Fever',
+                description: [
+                    'Monitor temperature.',
+                    'Stay hydrated.',
+                    'Rest and consult a doctor if the fever is high.'
+                ]
+            },
+            {
+                title: 'Asthma Attack',
+                description: [
+                    'Assist with inhaler use.',
+                    'Keep the person calm.'
+                ]
+            },
+            {
+                title: 'Vomiting',
+                description: [
+                    '1. Allow the Person to Rest.',
+                    '2. Keep Them Hydrated.',
+                    '3. Avoid Solid Foods Initially.',
+                    '4. Monitor for Dehydration.',
+                    '5. Avoid Strong Smells and Motion.',
+                    '6. Reassure and Comfort.',
+                    '7. Encourage Slow Recovery.',
+                    '8. Avoid Medications Unless Advised.',
+                    '9. When to Seek Medical Attention.'
+                ]
+            },
+            {
+                title: 'Headache',
+                description: [
+                    '1. Rest in a Quiet, Dark Room',
+                    '2. Stay Hydrated',
+                    '3. Avoid Solid Foods Initially.',
+                    '4. Practice Relaxation Techniques',
+                    '5. Use Over-the-Counter Pain Relief',
+                    '6. Avoid Straining Your Eyes',
+                    '7. Limit Caffeine and Alcohol',
+                    '8. Maintain Proper Posture',
+                    '9. Check for Potential Triggers',
+                    '10. Consult a Doctor if Persistent'
+                ]
+            }
+            
+        ];
+
+        // Filter diseases based on search criteria
+        const filteredDiseases = diseases.filter(disease => 
+            disease.title.toLowerCase().includes(diseaseTitle)
+        );
+
+        // Display filtered diseases stepwise
+        if (filteredDiseases.length > 0) {
+            filteredDiseases.forEach((disease, index) => {
+                setTimeout(() => {
+                    const diseaseItem = document.createElement('div');
+                    diseaseItem.className = 'disease-item';
+
+                    // Create and append the title
+                    const titleElement = document.createElement('h2');
+                    titleElement.textContent = disease.title;
+                    diseaseItem.appendChild(titleElement);
+
+                    // Display each description step by step
+                    disease.description.forEach((step, stepIndex) => {
+                        setTimeout(() => {
+                            const stepElement = document.createElement('p');
+                            stepElement.textContent = step;
+                            diseaseItem.appendChild(stepElement);
+                        }, stepIndex * 500); // 500ms delay for each step
+                    });
+
+                    diseaseResults.appendChild(diseaseItem);
+                }, index * 1500); // 1.5 seconds delay for each disease item
+            });
+        } else {
+            diseaseResults.innerHTML = '<p><b>Information Not Found or Check the Spelling</b></p>';
+        }
+    }
+</script>
+
+
+</body>
+</html>
