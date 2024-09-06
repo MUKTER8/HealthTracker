@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="profile-wrapper">
+        <div class="profile-card">
+            <div class="profile-header">
+                <h1 class="name" id="name"></h1>
+                <p class="division" id="division"></p>
+            </div>
+            <div class="profile-info">
+                <div class="info-row">
+                    <label>Email:</label>
+                    <p id="email"></p>
+                </div>
+                <div class="info-row">
+                    <label>Gender:</label>
+                    <p id="gender"></p>
+                </div>
+                <div class="info-row">
+                    <label>Age:</label>
+                    <p id="age"></p>
+                </div>
+            </div>
+            <div class="logout-container">
+                <button onclick="profilelogout()" id="logout-btn" class="logout-btn">Log Out</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function profilelogout() {
+          // check if user data is available in local storage
+         localStorage.clear()
+         location.replace("index.html")
+        }
+
+        // load user details
+        window.onload = () => {
+            let userdetails = localStorage.getItem("user")
+            if(!userdetails) {
+                localStorage.clear()
+                return location.replace("index.html")
+            }
+
+            // get html elements to show user details
+            let name = document.getElementById("name")
+            let division = document.getElementById("division")
+            let email = document.getElementById("email")
+            let gender = document.getElementById("gender")
+            let age = document.getElementById("age")
+
+            // get the user details from local storage
+            let userData = JSON.parse(userdetails)
+            
+            // show the data in the elements
+            name.innerText = userData?.name
+            division.innerText = userData?.division
+            email.innerText = userData?.email
+            gender.innerText = userData?.gender
+            age.innerText = userData?.age
+
+        }
+     </script>
+</body>
+</html>

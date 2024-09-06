@@ -232,6 +232,9 @@ button {
     padding-left: 20px;
     padding-top: 60px;
 }
+#profile-btn{
+     background-color: transparent;
+}
 .logo {
     width: 15%;
     float: left;

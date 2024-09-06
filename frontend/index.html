@@ -17,7 +17,8 @@
       <link rel="icon" href="images/fevicon.png" type="image/gif" />
       <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-    
+      <link rel="stylesheet" href="css/owl.carousel.min.css">
+      <link rel="stylesheet" href="css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
     </head>
     <body>
@@ -34,7 +35,7 @@
                 <a class="nav-link" href="FirstAid.html"><b>First Aid</b></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="bmi.html"><b>BMI Calculator</b></a>
+                <a class="nav-link" href="bmi.html"><b>Calculator</b></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="spdoctor.html"><b>Specialist Dr.</b></a>
@@ -52,7 +53,7 @@
                 <a class="nav-link" href="tracker.html"><b>Symptom Tracker</b></a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="login.html"><img src="images/login.png"></a>
+                <button class="nav-link" id="profile-btn" onclick="profileRouting()"><img src="images/login.png"></button>
               </li>              
             </ul>
           </div>
@@ -253,11 +254,11 @@
         </div>
         <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center align-items-lg-baseline">
           <div class="social-box">
-            <a href="https://www.facebook.com/MUKTER.HOSAIN.8?mibextid=ZbWKwL">
+            <a href="">
               <img src="images/fb-icon.png" alt="" />
             </a>
 
-            <a href="https://x.com/MUKTER HOSAIN">
+            <a href="">
               <img src="images/twitter-icon.png" alt="" />
             </a>
             <a href="">
@@ -271,7 +272,8 @@
         </div>
       </div>
     </div>
- 
+
+      <!-- script files -->
       <script src="js/jquery.min.js"></script>
       <script src="js/popper.min.js"></script>
       <script src="js/bootstrap.bundle.min.js"></script>
@@ -283,5 +285,21 @@
  
       <script src="js/owl.carousel.js"></script>
       <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+
+      <!-- custom javascript -->
+       <script>
+          function profileRouting() {
+            // check if user data is available in local storage
+            let userData = localStorage.getItem("user")
+            if(userData){
+              location.replace('profile.html')
+            }
+            else{
+              location.href = "login.html"
+            }
+          }
+       </script>
+
    </body>
    </html>
